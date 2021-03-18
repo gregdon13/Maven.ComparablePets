@@ -19,6 +19,6 @@ public class Application {
     }
 
     public Map getUserPets() {
-        return userPetMap;
+        return null;
     }
 }
