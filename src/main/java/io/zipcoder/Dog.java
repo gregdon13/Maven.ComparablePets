@@ -1,4 +1,9 @@
 package io.zipcoder;
 
-public class Dog extends Pet {
+import java.util.Comparator;
+
+public class Dog extends Pet implements Comparator {
+    public int compare(Object o1, Object o2) {
+        return 0;
+    }
 }
