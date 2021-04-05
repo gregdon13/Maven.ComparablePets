@@ -2,8 +2,25 @@ package io.zipcoder;
 
 import java.util.Comparator;
 
-public class Dog extends Pet implements Comparator {
-    public int compare(Object o1, Object o2) {
-        return 0;
+public class Dog extends Pet implements Comparable<Pet> {
+    String petName;
+
+    @Override
+    public String speak() {
+        return "woof";
+    }
+
+    @Override
+    public String getPetName() {
+        return petName;
+    }
+
+    @Override
+    public void setPetName(String petName) {
+        this.petName = petName;
+    }
+
+    public int compareTo(Pet str) {
+        return petType.compareTo(str.getPetType());
     }
 }

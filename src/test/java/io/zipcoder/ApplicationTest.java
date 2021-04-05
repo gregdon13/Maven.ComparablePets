@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,31 +16,33 @@ public class ApplicationTest {
     Cat cat = new Cat();
     Hedgehog hedgehog = new Hedgehog();
 
-    @Test
-    public void numberOfPets() {
-        //Given
-        app.setNumberOfPets(3);
-        Integer expected = 3;
+//    @Test
+//    public void numberOfPets() {
+//        //Given
+//        app.setPetNameType("Ellie", "hedgehog");
+//        app.setPetNameType("Leon", "cat");
+//        app.setPetNameType("Fido", "dog");
+//        Integer expected = 3;
+//
+//        //When
+//        Integer actual = app.getNumberOfPets();
+//
+//        //Then
+//        Assert.assertEquals(expected, actual);
+//    }
 
-        //When
-        Integer actual = app.getNumberOfPets();
-
-        //Then
-        Assert.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void petNameAndType() {
-        //Given
-        app.setPetNameType("Fluffy", "cat");
-        String expected = "{Fluffy=cat}";
-
-        //When
-        String actual = app.getUserPets().toString();
-
-        //Actual
-        Assert.assertEquals(expected, actual);
-    }
+//    @Test
+//    public void petNameAndType() {
+//        //Given
+//        app.setPetNameType("Fluffy", "cat");
+//        String expected = "{Fluffy=cat}";
+//
+//        //When
+//        String actual = app.getUserPets().toString();
+//
+//        //Actual
+//        Assert.assertEquals(expected, actual);
+//    }
 
     @Test
     public void petSpeak() {
@@ -101,4 +104,19 @@ public class ApplicationTest {
         //Then
         Assert.assertEquals(expected, actual);
     }
+
+//    @Test
+//    public void setGetPetMap() {
+//        //Given
+//        app.setPetNameType("Ellie", "hedgehog");
+//        app.setPetNameType("Leon", "cat");
+//        app.setPetNameType("Fido", "dog");
+//
+//        //When
+//        String expected = "{Leon=cat, Fido=dog, Ellie=hedgehog}";
+//        String actual = app.getUserPets().toString();
+//
+//        //Then
+//        Assert.assertEquals(expected, actual);
+//    }
 }
