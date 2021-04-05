@@ -6,7 +6,6 @@ import java.util.*;
 
 public class Application implements Comparator<Pet>{
     public Pet pet;
-    int numOfPets;
     public ArrayList<Pet> petList = new ArrayList<Pet>();
     Console console = new Console(System.in, System.out);
 
@@ -27,6 +26,7 @@ public class Application implements Comparator<Pet>{
             running = false;
         }
         Collections.sort(petList);
+        Collections.sort(petList);
         print(petList);
         return petList;
     }
@@ -42,9 +42,9 @@ public class Application implements Comparator<Pet>{
         return petList.size();
     }
 
-//    public void setPetNameType(String name, String petType) {
-//        userPetMap.put(name, petType);
-//    }
+    public void addPet(Pet pet) {
+        petList.add(pet);
+    }
 
     public ArrayList<Pet> getUserPets() {
 
@@ -52,6 +52,6 @@ public class Application implements Comparator<Pet>{
     }
 
     public int compare(Pet p1, Pet p2) {
-        return p1.getPetType().compareTo(p2.getPetType());
+        return p1.compareTo(p2);
     }
 }

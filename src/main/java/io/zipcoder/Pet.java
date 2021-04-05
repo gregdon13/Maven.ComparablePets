@@ -4,6 +4,7 @@ public class Pet implements Comparable<Pet>{
     String petName;
     String petType;
 
+
     public String speak() {
         return "noise";
     }
@@ -25,6 +26,9 @@ public class Pet implements Comparable<Pet>{
     }
 
     public int compareTo(Pet o) {
+        if (this.petType.equals(o.getPetType())) {
+            return this.petName.compareTo(o.getPetName());
+        }
         return this.petType.compareTo(o.getPetType());
     }
 }

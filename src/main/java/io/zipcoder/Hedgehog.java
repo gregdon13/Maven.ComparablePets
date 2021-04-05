@@ -4,7 +4,13 @@ import java.util.Comparator;
 
 public class Hedgehog extends Pet implements Comparable<Pet> {
     String petName;
-    String petType;
+    String petType = "Hedgehog";
+
+    public Hedgehog() {}
+
+    public Hedgehog(String name) {
+        this.petName = name;
+    }
 
     @Override
     public String speak() {
@@ -21,8 +27,13 @@ public class Hedgehog extends Pet implements Comparable<Pet> {
         this.petName = petName;
     }
 
+    @Override
+    public String getPetType() {
+        return this.petType;
+    }
+
     public int compareTo(Pet str) {
-        return petType.compareTo(str.getPetType());
+        return petName.compareTo(str.getPetName());
     }
 
 

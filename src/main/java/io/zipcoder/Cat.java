@@ -4,6 +4,14 @@ import java.util.Comparator;
 
 public class Cat extends Pet implements Comparable<Pet> {
     String petName;
+    String petType = "Cat";
+
+    public Cat() {}
+
+    public Cat(String name, String type) {
+        this.petName = name;
+        this.petType = type;
+    }
 
     @Override
     public String getPetName() {
@@ -20,7 +28,12 @@ public class Cat extends Pet implements Comparable<Pet> {
         return "meow";
     }
 
+    @Override
+    public String getPetType() {
+        return this.petType;
+    }
+
     public int compareTo(Pet str) {
-        return petType.compareTo(str.getPetType());
+        return petName.compareTo(str.getPetName());
     }
 }

@@ -5,44 +5,55 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+
 
 public class ApplicationTest {
     Application app = new Application();
     Pet pet = new Pet();
-    Dog dog = new Dog();
-    Cat cat = new Cat();
-    Hedgehog hedgehog = new Hedgehog();
+    Dog dog = new Dog("Fido");
+    Cat cat = new Cat("Leon", "Cat");
+    Hedgehog hedgehog = new Hedgehog("Ellie");
 
-//    @Test
-//    public void numberOfPets() {
-//        //Given
-//        app.setPetNameType("Ellie", "hedgehog");
-//        app.setPetNameType("Leon", "cat");
-//        app.setPetNameType("Fido", "dog");
-//        Integer expected = 3;
-//
-//        //When
-//        Integer actual = app.getNumberOfPets();
-//
-//        //Then
-//        Assert.assertEquals(expected, actual);
-//    }
+    @Test
+    public void numberOfPets() {
+        //Given
+        app.addPet(dog);
+        app.addPet(cat);
+        app.addPet(hedgehog);
+        Integer expected = 3;
 
-//    @Test
-//    public void petNameAndType() {
-//        //Given
-//        app.setPetNameType("Fluffy", "cat");
-//        String expected = "{Fluffy=cat}";
-//
-//        //When
-//        String actual = app.getUserPets().toString();
-//
-//        //Actual
-//        Assert.assertEquals(expected, actual);
-//    }
+        //When
+        Integer actual = app.getNumberOfPets();
+
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void petName() {
+        //Given
+        app.addPet(cat);
+        String expected = "Leon";
+
+        //When
+        String actual = app.getUserPets().get(0).getPetName();
+
+        //Actual
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void petType() {
+        //Given
+        app.addPet(cat);
+        String expected = "Cat";
+
+        //When
+        String actual = app.getUserPets().get(0).getPetType();
+
+        //Actual
+        Assert.assertEquals(expected, actual);
+    }
 
     @Test
     public void petSpeak() {
@@ -105,18 +116,18 @@ public class ApplicationTest {
         Assert.assertEquals(expected, actual);
     }
 
-//    @Test
-//    public void setGetPetMap() {
-//        //Given
-//        app.setPetNameType("Ellie", "hedgehog");
-//        app.setPetNameType("Leon", "cat");
-//        app.setPetNameType("Fido", "dog");
-//
-//        //When
-//        String expected = "{Leon=cat, Fido=dog, Ellie=hedgehog}";
-//        String actual = app.getUserPets().toString();
-//
-//        //Then
-//        Assert.assertEquals(expected, actual);
-//    }
+    @Test
+    public void sameList() {
+        //Given
+        app.addPet(dog);
+        app.addPet(cat);
+        app.addPet(hedgehog);
+
+        //When
+        ArrayList<Pet> expected = app.petList;
+        ArrayList<Pet> actual = app.getUserPets();
+
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
 }
